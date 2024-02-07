@@ -24,6 +24,10 @@ def canvas(with_attribution=True):
     return quote
 
 
+def something_new():
+    print("Waffle soup is yummy")
+
+
 if __name__ == "__main__":
     # Do something if this file is invoked on its own
     print(canvas())

@@ -7,6 +7,13 @@ molecool
 
 Something awesome is about to happen
 
+## Install instructions
+
+To install, run this command:
+```python
+pip install -e .
+```
+
 ### Copyright
 
 Copyright (c) 2024, Levi Naden
