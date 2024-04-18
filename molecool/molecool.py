@@ -1,5 +1,6 @@
 """Provide the primary functions."""
 
+import numpy as np
 
 def canvas(with_attribution=True):
     """
@@ -23,9 +24,27 @@ def canvas(with_attribution=True):
         quote += "\n\t- Adapted from Henry David Thoreau"
     return quote
 
+def calculate_distance(rA, rB):
+    # This function calculates the distance between two points given as numpy arrays.
+    d = (rA - rB)
+    dist = np.linalg.norm(d)
+    return dist
 
-def something_new():
-    print("Waffle soup is yummy")
+def build_bond_list(coordinates, max_bond=1.5, min_bond=0):
+    # Find the bonds in a molecule (set of coordinates) based on distance criteria.
+    bonds = {}
+    num_atoms = len(coordinates)
+
+    if min_bond < 0:
+        raise ValueError("Invalid minimum bond distance entered! Minimum bond distance must be greater than zero!")
+
+    for atom1 in range(num_atoms):
+        for atom2 in range(atom1, num_atoms):
+            distance = calculate_distance(coordinates[atom1], coordinates[atom2])
+            if distance > min_bond and distance < max_bond:
+                bonds[(atom1, atom2)] = distance
+
+    return bonds
 
 
 if __name__ == "__main__":
