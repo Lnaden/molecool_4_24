@@ -25,6 +25,10 @@ jobs:
         python-version: [3.8, 3.9, "3.10"]
 
     steps:
+      - uses: mscoutermarsh/ascii-art-action@master
+        with:
+          text: 'Waffles are better than pancakes'
+
       - uses: actions/checkout@v4
 
       - name: Additional info about the build
